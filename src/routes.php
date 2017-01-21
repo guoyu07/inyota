@@ -129,7 +129,6 @@ Application::group('/api', function () {
         ->add(\Zank\Middleware\AuthenticationUserToken::class)
         ->add(\Zank\Middleware\InitDb::class);
 
-
     // 地区接口
     $this->any('/areas[/{pid:\d+}]', \Zank\Controller\Api\Area::class.':get')
         ->add(\Zank\Middleware\InitDb::class);

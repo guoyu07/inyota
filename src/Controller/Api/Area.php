@@ -2,10 +2,10 @@
 
 namespace Zank\Controller\Api;
 
-use Zank\Controller;
-use Zank\Model\Area as AreaModel;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Zank\Controller;
+use Zank\Model\Area as AreaModel;
 
 class Area extends Controller
 {
