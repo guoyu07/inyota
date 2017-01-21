@@ -2,7 +2,9 @@
 
 namespace Zank\Console;
 
-use Symfony\Component\Console\Application as BaseApplication;
+use Composer\Console\Application as BaseApplication;
+use Composer\Command as ComposerCommand;
+use Symfony\Component\Console\Command as SymfonyCommand;
 
 class Application extends BaseApplication
 {
@@ -11,9 +13,10 @@ class Application extends BaseApplication
 
     public function __construct()
     {
-        error_reporting(-1);
+        parent::__construct();
 
-        parent::__construct(self::$name, self::$version);
+        $this->setName(static::$name);
+        $this->setVersion(static::$version);
 
         $this->addCommands([
             new Command\TableImportCommand(),
@@ -22,5 +25,35 @@ class Application extends BaseApplication
         ]);
 
         $this->setDefaultCommand('list');
+    }
+
+    public function getHelp()
+    {
+        return $this->getLongVersion();
+    }
+
+    public function getLongVersion()
+    {
+        if ('UNKNOWN' !== $this->getName()) {
+            if ('UNKNOWN' !== $this->getVersion()) {
+                return sprintf('<info>%s</info> version <comment>%s</comment>', $this->getName(), $this->getVersion());
+            }
+
+            return sprintf('<info>%s</info>', $this->getName());
+        }
+
+        return '<info>Console Tool</info>';
+    }
+
+    protected function getDefaultCommands()
+    {
+        return [
+            // Syfony commands.
+            new SymfonyCommand\HelpCommand(),
+            new SymfonyCommand\ListCommand(),
+
+            // Composer commands.
+            new ComposerCommand\DumpAutoloadCommand(),
+        ];
     }
 }
