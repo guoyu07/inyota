@@ -21,9 +21,9 @@ abstract class Seeder implements SeederInterface
         $this->handle();
     }
 
-    protected function call(string $class)
+    protected function call(string $class, bool $reset = false)
     {
-        $seeder->resolve($class)->run();
+        $seeder->resolve($class)->run($reset);
 
         if (isset($this->command)) {
             $this->command->getOutput()->writeln("<info>Seeded:</info> $class");
