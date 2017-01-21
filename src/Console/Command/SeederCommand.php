@@ -33,11 +33,7 @@ class SeederCommand extends Command
         $reset = $input->getOption('reset');
 
         if (empty($seedClasses)) {
-            $seeder = new DatabaseSeeder();
-            $seeder->setCommand($this);
-            $seeder->run($reset);
-
-            return;
+            return $this->runAllSeeder($reset);
         }
 
         foreach ($seedClasses as $class) {
@@ -46,5 +42,12 @@ class SeederCommand extends Command
             $seeder->setCommand($this);
             $seeder->run($reset);
         }
+    }
+
+    protected function runAllSeeder(bool $reset)
+    {
+        $seeder = new DatabaseSeeder();
+        $seeder->setCommand($this);
+        $seeder->run($reset);
     }
 }
