@@ -29,16 +29,16 @@ class Application
         self::requires($requireFiles);
 
         $slient = strtolower(PHP_SAPI) === 'cli';
-        $client = [
-            'web' => self::$application->run($slient),
-        ];
+        $client = self::$application->run($slient);
+        self::$client = $client;
 
+        // CLI.
         if ($slient === true) {
-            $client['cli'] = new Console\Application();
-            $client['cli-return'] = $client['cli']->run();
+            $client = new Console\Application();
+            $client->run();
         }
 
-        return self::$client = $client;
+        return $client;
     }
 
     public static function getClient()
