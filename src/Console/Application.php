@@ -26,6 +26,7 @@ class Application extends BaseApplication
             new Command\TableImportCommand(),
             new Command\TableDeleteCommand(),
             new Command\SeederCommand(),
+            new Command\ServerCommand(),
         ]);
 
         $this->setDefaultCommand('list');

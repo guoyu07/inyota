@@ -79,3 +79,17 @@ if (!function_exists('database_source_dir')) {
         return dirname(__DIR__).'/database';
     }
 }
+
+if (!function_exists('base_path')) {
+    function base_path()
+    {
+        return dirname(__DIR__);
+    }
+}
+
+if (!function_exists('public_path')) {
+    function public_path()
+    {
+        return base_path().'/public';
+    }
+}
