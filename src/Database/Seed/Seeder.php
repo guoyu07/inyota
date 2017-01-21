@@ -2,8 +2,8 @@
 
 namespace Zank\Database\Seed;
 
-use Zank\Interfaces\Database\Seed\SeederInterface;
 use Symfony\Component\Console\Command\Command;
+use Zank\Interfaces\Database\Seed\SeederInterface;
 
 abstract class Seeder implements SeederInterface
 {
@@ -32,7 +32,7 @@ abstract class Seeder implements SeederInterface
 
     protected function resolve(string $class)
     {
-        $seeder = new $class;
+        $seeder = new $class();
         if (isset($this->command)) {
             $seeder->setCommand($this->command);
         }

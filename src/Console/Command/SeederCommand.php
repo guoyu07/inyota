@@ -2,14 +2,14 @@
 
 namespace Zank\Console\Command;
 
-use Zank\Traits\InitDatabaseToConsole;
+use DatabaseSeeder;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Zank\Console\AbstractCommand as Command;
-use DatabaseSeeder;
+use Zank\Traits\InitDatabaseToConsole;
 
 class SeederCommand extends Command
 {
@@ -37,7 +37,7 @@ class SeederCommand extends Command
         }
 
         foreach ($seedClasses as $class) {
-            $seeder = new $class;
+            $seeder = new $class();
             $seeder->setCommand($this);
             $seeder->run($reset);
         }

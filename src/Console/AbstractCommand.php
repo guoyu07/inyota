@@ -3,9 +3,9 @@
 namespace Zank\Console;
 
 use Symfony\Component\Console\Command\Command;
-use Zank\Interfaces\Console\CommandInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Zank\Interfaces\Console\CommandInterface;
 
 abstract class AbstractCommand extends Command implements CommandInterface
 {
