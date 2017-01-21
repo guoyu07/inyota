@@ -33,10 +33,16 @@ class SeederCommand extends Command
         $reset = $input->getOption('reset');
 
         if (empty($seedClasses)) {
-            array_push($seedClasses, DatabaseSeeder::class);
+
+            $seeder = new DatabaseSeeder();
+            $seeder->setCommand($this);
+            $seeder->run($reset);
+
+            return ;
         }
 
         foreach ($seedClasses as $class) {
+            $consoleStyle->writeln("<info>Seeded:</info> $class");
             $seeder = new $class();
             $seeder->setCommand($this);
             $seeder->run($reset);
