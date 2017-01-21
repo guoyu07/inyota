@@ -10,5 +10,6 @@ class DatabaseSeeder extends Seeder
     }
 
     protected function reset()
-    {}
+    {
+    }
 }

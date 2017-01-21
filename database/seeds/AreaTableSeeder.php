@@ -1,8 +1,8 @@
 <?php
 
+use Symfony\Component\Console\Helper\ProgressBar;
 use Zank\Database\Seed\Seeder;
 use Zank\Model\Area;
-use Symfony\Component\Console\Helper\ProgressBar;
 
 class AreaTableSeeder extends Seeder
 {
@@ -10,7 +10,7 @@ class AreaTableSeeder extends Seeder
     {
         $cn = new Area();
         $cn->name = '中国';
-        $cn->pid  = 0;
+        $cn->pid = 0;
         $cn->extends = 3;
         $cn->save();
 
@@ -24,7 +24,7 @@ class AreaTableSeeder extends Seeder
             $progressBar->setProgressCharacter('');
             $progressBar->setBarCharacter('▓'); // dark shade character \u2593
         }
-        
+
         foreach ($gbs as $gb) {
             $location = $this->get($gb);
             $exp = explode(' ', $location);
@@ -115,14 +115,14 @@ class AreaTableSeeder extends Seeder
     }
 
     protected $data = [
-        110000 => '北京市',
-        110100 => '市辖区',
-        110101 => '东城区',
-        110102 => '西城区',
-        110105 => '朝阳区',
-        110106 => '丰台区',
-        110107 => '石景山区',
-        110108 => '海淀区',
+        110000   => '北京市',
+        110100   => '市辖区',
+        110101   => '东城区',
+        110102   => '西城区',
+        110105   => '朝阳区',
+        110106   => '丰台区',
+        110107   => '石景山区',
+        110108   => '海淀区',
           110109 => '门头沟区',
           110111 => '房山区',
           110112 => '通州区',
