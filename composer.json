@@ -28,6 +28,9 @@
         "files": [
             "src/helper.php"
         ],
+        "classmap": [
+            "database/"
+        ],
         "psr-4": {
             "Zank\\": "src/"
         }

@@ -18,6 +18,7 @@ class Application extends BaseApplication
         $this->addCommands([
             new Command\TableImportCommand(),
             new Command\TableDeleteCommand(),
+            new Command\SeederCommand(),
         ]);
 
         $this->setDefaultCommand('list');
