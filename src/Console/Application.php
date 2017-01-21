@@ -68,7 +68,7 @@ class Application extends BaseApplication
             unset($memoryInBytes, $memoryLimit);
         }
 
-        parent::run($input, $output);
+        return parent::run($input, $output);
     }
 
     protected function runXdebugHandler(OutputInterface $output)
