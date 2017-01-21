@@ -4,11 +4,11 @@ namespace Zank\Console;
 
 use Composer\Command as ComposerCommand;
 use Composer\Console\Application as BaseApplication;
+use Composer\Factory;
+use Composer\XdebugHandler;
 use Symfony\Component\Console\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Composer\Factory;
-use Composer\XdebugHandler;
 
 class Application extends BaseApplication
 {
@@ -46,7 +46,7 @@ class Application extends BaseApplication
             $memoryInBytes = function ($value) {
                 $unit = strtolower(substr($value, -1, 1));
                 $value = (int) $value;
-                switch($unit) {
+                switch ($unit) {
                     case 'g':
                         $value *= 1024;
                         // no break (cumulative multiplier)
