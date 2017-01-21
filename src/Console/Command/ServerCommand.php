@@ -28,7 +28,7 @@ class ServerCommand extends Command
         $base = ProcessUtils::escapeArgument(public_path());
         $binary = ProcessUtils::escapeArgument((new PhpExecutableFinder())->find(false));
 
-        $output->writeln("<info>Zank development server started on</info> http://{$host}:{$port}/");
+        $output->writeln("<info>Zank development server started on</info> http://{$host}:{$port}");
 
         passthru("{$binary} -S {$host}:{$port} {$base}/index.php");
     }
