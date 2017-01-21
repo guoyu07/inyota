@@ -1,6 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+if (PHP_SAPI !== 'cli') {
+    echo 'Warning: Composer should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
+}
+
 if (PHP_VERSION_ID < 70000) {
     file_put_contents('php://stderr', sprintf(
         "The project requires PHP 7.0 version or higher and your system has\n".
@@ -14,5 +18,7 @@ if (PHP_VERSION_ID < 70000) {
 if (!isset($_SERVER['PATH']) && isset($_SERVER['Path'])) {
     $_SERVER['PATH'] = $_SERVER['Path'];
 }
+
+error_reporting(-1);
 
 require __DIR__.'/bootstrap.php';
