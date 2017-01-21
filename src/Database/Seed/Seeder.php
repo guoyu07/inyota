@@ -9,7 +9,7 @@ abstract class Seeder implements SeederInterface
 {
     protected $command;
 
-    abstract protected function handle();
+    abstract protected function handle(bool $reset);
 
     abstract protected function reset();
 
@@ -18,16 +18,15 @@ abstract class Seeder implements SeederInterface
         if ($reset) {
             $this->reset();
         }
-        $this->handle();
+        $this->handle($reset);
     }
 
     protected function call(string $class, bool $reset = false)
     {
-        $seeder->resolve($class)->run($reset);
-
         if (isset($this->command)) {
             $this->command->getOutput()->writeln("<info>Seeded:</info> $class");
         }
+        $this->resolve($class)->run($reset);
     }
 
     protected function resolve(string $class)

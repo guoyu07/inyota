@@ -4,13 +4,11 @@ use Zank\Database\Seed\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    protected function handle()
+    protected function handle(bool $reset)
     {
-        echo '1';
+        $this->call(AreaTableSeeder::class, $reset);
     }
 
     protected function reset()
-    {
-        echo '0';
-    }
+    {}
 }
