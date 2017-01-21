@@ -128,6 +128,11 @@ Application::group('/api', function () {
     $this->post('/users', \Zank\Controller\Api\User::class.':gets')
         ->add(\Zank\Middleware\AuthenticationUserToken::class)
         ->add(\Zank\Middleware\InitDb::class);
+
+
+    // 地区接口
+    $this->any('/areas[/{pid:\d+}]', \Zank\Controller\Api\Area::class.':get')
+        ->add(\Zank\Middleware\InitDb::class);
 })
 ->add(\Zank\Middleware\ExceptionHandle2API::class);
 
