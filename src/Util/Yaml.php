@@ -17,7 +17,7 @@ class Yaml extends BaseYaml
         }
 
         $content = file_get_contents($filename);
-        $this->cfg = self::parse($content);
+        $this->cfg = (array) self::parse($content);
     }
 
     public function get($key, $default = null)
