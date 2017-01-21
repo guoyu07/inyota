@@ -27,7 +27,7 @@ class SeederCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $consoleStyle = new SymfonyStyle($input, $output);
-        $consoleStyle->title('导入数据:');
+        $consoleStyle->title('数据填充');
 
         $seedClasses = $input->getArgument('seed');
         $reset = $input->getOption('reset');
