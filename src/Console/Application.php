@@ -2,8 +2,8 @@
 
 namespace Zank\Console;
 
-use Composer\Console\Application as BaseApplication;
 use Composer\Command as ComposerCommand;
+use Composer\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command as SymfonyCommand;
 
 class Application extends BaseApplication
