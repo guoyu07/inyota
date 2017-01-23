@@ -1,8 +1,8 @@
 <?php
 
-use Symfony\Component\Console\Helper\ProgressBar;
 use InYota\Database\Seed\Seeder;
 use InYota\Model\Area;
+use Symfony\Component\Console\Helper\ProgressBar;
 
 class AreaTableSeeder extends Seeder
 {

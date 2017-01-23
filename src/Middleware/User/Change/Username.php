@@ -2,10 +2,10 @@
 
 namespace InYota\Middleware\User\Change;
 
-use Psr\Http\Message\RequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
 use InYota\Model;
 use InYota\Traits\Container;
+use Psr\Http\Message\RequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
 
 class Username
 {

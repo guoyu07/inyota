@@ -2,10 +2,10 @@
 
 namespace InYota\Middleware\User\Change;
 
-use Psr\Http\RequestInterface as Request;
-use Psr\Http\RequestInterface as Response;
 use InYota\Model;
 use InYota\Traits\Container;
+use Psr\Http\RequestInterface as Request;
+use Psr\Http\RequestInterface as Response;
 
 /**
  * 修改用户信息，地区修改中间件。

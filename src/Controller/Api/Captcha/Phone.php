@@ -3,9 +3,9 @@
 namespace InYota\Controller\Api\Captcha;
 
 use Carbon\Carbon;
+use InYota\Controller;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use InYota\Controller;
 
 /**
  * 手机验证码控制器.

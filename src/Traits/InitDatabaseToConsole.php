@@ -2,9 +2,9 @@
 
 namespace InYota\Traits;
 
+use InYota\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use InYota\Application;
 
 trait InitDatabaseToConsole
 {

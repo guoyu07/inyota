@@ -2,8 +2,8 @@
 
 namespace InYota\Database\Seed;
 
-use Symfony\Component\Console\Command\Command;
 use InYota\Interfaces\Database\Seed\SeederInterface;
+use Symfony\Component\Console\Command\Command;
 
 abstract class Seeder implements SeederInterface
 {

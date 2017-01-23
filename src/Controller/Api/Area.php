@@ -2,10 +2,10 @@
 
 namespace InYota\Controller\Api;
 
-use Psr\Http\Message\RequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
 use InYota\Controller;
 use InYota\Model\Area as AreaModel;
+use Psr\Http\Message\RequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
 
 class Area extends Controller
 {

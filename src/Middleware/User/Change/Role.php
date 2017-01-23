@@ -2,9 +2,9 @@
 
 namespace InYota\Middleware\User\Change;
 
+use InYota\Traits\Container;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use InYota\Traits\Container;
 
 class Role
 {
