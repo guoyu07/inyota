@@ -1,13 +1,13 @@
 <?php
 
-namespace Zank\Controller\Api;
+namespace InYota\Controller\Api;
 
 use Geohash\Geohash;
 use Illuminate\Database\Eloquent\Builder;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Controller;
-use Zank\Model;
+use InYota\Controller;
+use InYota\Model;
 
 class User extends Controller
 {
@@ -34,7 +34,7 @@ class User extends Controller
         $user = $this->ci->get('user');
         $user->save();
 
-        return with(new \Zank\Common\Message($response, true, '修改用户资料成功'))
+        return with(new \InYota\Common\Message($response, true, '修改用户资料成功'))
             ->withJson();
     }
 
@@ -43,14 +43,14 @@ class User extends Controller
         $key = $request->getParsedBodyParam('key');
 
         if (!$key) {
-            return with(new \Zank\Common\Message($response, false, '请输入搜索关键词'))
+            return with(new \InYota\Common\Message($response, false, '请输入搜索关键词'))
                 ->withJson();
         }
 
         $users = Model\User::where('username', 'like', '%'.$key.'%')
             ->get();
 
-        return with(new \Zank\Common\Message($response, true, '', $users->toArray()))
+        return with(new \InYota\Common\Message($response, true, '', $users->toArray()))
             ->withJson();
     }
 
@@ -60,7 +60,7 @@ class User extends Controller
         $longitude = $request->getParsedBodyParam('longitude');
 
         if (!$latitude || !$longitude) {
-            return with(new \Zank\Common\Message($response, false, '请设置当前经纬度'))
+            return with(new \InYota\Common\Message($response, false, '请设置当前经纬度'))
                 ->withJson();
         }
 
@@ -136,9 +136,9 @@ class User extends Controller
         $users = $users->get();
 
         if (!$users->count()) {
-            return with(new \Zank\Common\Message($response, false, '没有用户'))->withJson();
+            return with(new \InYota\Common\Message($response, false, '没有用户'))->withJson();
         }
 
-        return with(new \Zank\Common\Message($response, true, '', $users->toArray()))->withJson();
+        return with(new \InYota\Common\Message($response, true, '', $users->toArray()))->withJson();
     }
 }

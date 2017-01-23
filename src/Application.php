@@ -1,11 +1,11 @@
 <?php
 
-namespace Zank;
+namespace InYota;
 
-use Slim\App;
+use Slim\App as SlimApp;
 
 /**
- * Zank application.
+ * InYota application.
  *
  * @author Seven Du <lovevipdsw@outlook.com>
  **/
@@ -19,8 +19,8 @@ class Application
 
     public function __construct($container)
     {
-        if (!self::$application instanceof App) {
-            self::$application = new App($container);
+        if (!self::$application instanceof SlimApp) {
+            self::$application = new SlimApp($container);
         }
     }
 
@@ -65,7 +65,7 @@ class Application
 
     public static function __callStatic($funcname, $arguments)
     {
-        if (self::$application instanceof App) {
+        if (self::$application instanceof SlimApp) {
             return call_user_func_array([self::$application, $funcname], $arguments);
         }
 

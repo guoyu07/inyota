@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Console\Command;
+namespace InYota\Console\Command;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Symfony\Component\Console\Command\Command;
@@ -9,8 +9,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Zank\Traits\InitDatabaseToConsole;
-use Zank\Util\DatabaseTablesIterator;
+use InYota\Traits\InitDatabaseToConsole;
+use InYota\Util\DatabaseTablesIterator;
 
 class TableDeleteCommand extends Command
 {

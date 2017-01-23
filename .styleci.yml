@@ -15,7 +15,7 @@ finder:
   name:
     - "*.php"
   path:
-    - "zank"
+    - "yota"
     - "bootstrap.php"
     - "public/index.php"
     - "database"

@@ -1,10 +1,10 @@
 <?php
 
-namespace Zank\Middleware\User\Change;
+namespace InYota\Middleware\User\Change;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Traits\Container;
+use InYota\Traits\Container;
 
 class Role
 {
@@ -28,7 +28,7 @@ class Role
 
         if ($role !== null) {
             if (!in_array($role, ['1', '0.5', '0', '-1'])) {
-                return with(new \Zank\Common\Message($response, false, '设置的角色范围有误'))
+                return with(new \InYota\Common\Message($response, false, '设置的角色范围有误'))
                     ->withJson();
             }
 

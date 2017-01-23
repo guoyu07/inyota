@@ -1,5 +1,5 @@
 #
-# Zank application setting file [YAML] .
+# InYota application setting file [YAML] .
 # 
 # Seven Du <lovevipdsw@outlook.com>
 #
@@ -13,7 +13,7 @@ DISPLAY_ERROR_DETAILS: true
 ADD_CONTENT_LENGTH_HEADER: false
 
 # Monolog settings
-LOGGER_NAME: zank
+LOGGER_NAME: yota
 LOGGER_LEVEL: 100
 LOGGER_PATH: /logs/app.log # 相对于root目录
 
@@ -25,7 +25,7 @@ DB_PREFIX: medz_
 # ----------------------------------
 DB_HOST: localhost
 DB_PORT: 3306
-DB_DATABASE: zank
+DB_DATABASE: yota
 DB_USERNAME: root
 DB_PASSWORD: null
 # ----------------------------------
@@ -34,8 +34,8 @@ DB_PASSWORD: null
 # ----------------------------
 # DB_HOST: localhost
 # DB_PORT: 3432
-# DB_DATABASE: zank
-# DB_USERNAME: zank
+# DB_DATABASE: yota
+# DB_USERNAME: yota
 # DB_PASSWORD: null
 # ----------------------------
 
@@ -43,7 +43,7 @@ DB_PASSWORD: null
 OSS_ACCESS_KEY_ID: id
 OSS_ACCESS_KEY_SECRET: secret
 OSS_ENDPOINT: oss-cn-hangzhou.aliyuncs.com
-OSS_BUCKET: zank
+OSS_BUCKET: yota
 OSS_SOURCE_URL: http://medz.oss-cn-hangzhou.aliyuncs.com
 OSS_SOURCE_SIGN: false
 OSS_SIGN_TIMEOUT: 1800

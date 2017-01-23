@@ -6,7 +6,7 @@ declare(strict_types=1);
 require __DIR__.'/vendor/autoload.php';
 
 $settings = require __DIR__.'/src/settings.php';
-$app = new \Zank\Application($settings);
+$app = new \InYota\Application($settings);
 
 /*
  *  运行程序，并返回程序储存的资源数组。

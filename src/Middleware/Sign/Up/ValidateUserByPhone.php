@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Middleware\Sign\Up;
+namespace InYota\Middleware\Sign\Up;
 
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\RequestInterface as Request;
@@ -25,7 +25,7 @@ class ValidateUserByPhone
         $phone = $request->getParsedBodyParam('phone');
 
         if (!$phone) {
-            return with(new \Zank\Common\Message($response, false, '手机号码不正确。'))
+            return with(new \InYota\Common\Message($response, false, '手机号码不正确。'))
                 ->withJson();
         }
 
@@ -35,7 +35,7 @@ class ValidateUserByPhone
 
         // 不存在注入信息，查询信息，并注入
         } else {
-            $user = \Zank\Model\User::withTrashed()
+            $user = \InYota\Model\User::withTrashed()
                 ->byPhone($phone)
                 ->first();
         }
@@ -46,11 +46,11 @@ class ValidateUserByPhone
 
             // 手机号等于注入的用户手机号
             if ($user->phone == $phone) {
-                $response = new \Zank\Common\Message($response, false, '手机号已经被使用。');
+                $response = new \InYota\Common\Message($response, false, '手机号已经被使用。');
 
             // 只要用户存在就不允许
             } else {
-                $response = new \Zank\Common\Message($response, false, '当前用户名或者手机号码不能注册。');
+                $response = new \InYota\Common\Message($response, false, '当前用户名或者手机号码不能注册。');
             }
 
             return $response->withJson();

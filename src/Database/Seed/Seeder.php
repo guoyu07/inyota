@@ -1,9 +1,9 @@
 <?php
 
-namespace Zank\Database\Seed;
+namespace InYota\Database\Seed;
 
 use Symfony\Component\Console\Command\Command;
-use Zank\Interfaces\Database\Seed\SeederInterface;
+use InYota\Interfaces\Database\Seed\SeederInterface;
 
 abstract class Seeder implements SeederInterface
 {

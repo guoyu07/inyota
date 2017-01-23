@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Util;
+namespace InYota\Util;
 
 use Symfony\Component\Yaml\Yaml as BaseYaml;
 

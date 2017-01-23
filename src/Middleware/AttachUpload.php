@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Middleware;
+namespace InYota\Middleware;
 
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\RequestInterface as Request;
@@ -27,7 +27,7 @@ class AttachUpload
         $ext = $ext ? '.'.$ext : '';
         $md5 = md5_file($file->file);
 
-        $attach = \Zank\Model\Attach::byMd5($md5)->first();
+        $attach = \InYota\Model\Attach::byMd5($md5)->first();
         if (!$attach) {
             $path = $this->getUploadPath($md5, $ext);
             $this->ci->get('oss')->multiuploadFile(get_oss_bucket_name(), $path, $file->file);
@@ -49,10 +49,10 @@ class AttachUpload
         );
     }
 
-    protected function saveAttachLink(\Zank\Model\Attach $attach)
+    protected function saveAttachLink(\InYota\Model\Attach $attach)
     {
         $user = $this->ci->get('user');
-        $link = \Zank\Model\AttachLink::byUserId($user->user_id)->byAttachId($attach->attach_id)->first();
+        $link = \InYota\Model\AttachLink::byUserId($user->user_id)->byAttachId($attach->attach_id)->first();
 
         if (!$link) {
             $link = $user->attachs()->attach($attach->attach_id);
@@ -63,7 +63,7 @@ class AttachUpload
     {
         $user = $this->ci->get('user');
 
-        $attach = new \Zank\Model\Attach();
+        $attach = new \InYota\Model\Attach();
         $attach->path = $path;
         $attach->name = $file->getClientFilename();
         $attach->type = $file->getClientMediaType();
@@ -91,12 +91,12 @@ class AttachUpload
 
         // 判断是否只上传了一个文件。
         if (count($files) !== 1) {
-            return with(new \Zank\Common\Message($response, false, '只允许单个文件上传'))
+            return with(new \InYota\Common\Message($response, false, '只允许单个文件上传'))
                 ->withJson();
 
         // 判断如果上传错误，将返回什么错误消息。
         } elseif (($file = current($files)) && $file->getError() !== UPLOAD_ERR_OK) {
-            throw new \Zank\Exception\UploadException($file->getError());
+            throw new \InYota\Exception\UploadException($file->getError());
         }
 
         $attach = $this->upload($file);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Interfaces\Console;
+namespace InYota\Interfaces\Console;
 
 interface CommandInterface
 {

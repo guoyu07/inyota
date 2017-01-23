@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Traits;
+namespace InYota\Traits;
 
 use Interop\Container\ContainerInterface;
 

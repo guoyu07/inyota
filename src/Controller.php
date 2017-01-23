@@ -1,8 +1,8 @@
 <?php
 
-namespace Zank;
+namespace InYota;
 
-use Zank\Traits\Container;
+use InYota\Traits\Container;
 
 /**
  * Controller 基础类.

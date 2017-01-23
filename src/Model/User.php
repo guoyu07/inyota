@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Model;
+namespace InYota\Model;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

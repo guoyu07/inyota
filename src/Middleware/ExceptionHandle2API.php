@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Middleware;
+namespace InYota\Middleware;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -33,7 +33,7 @@ class ExceptionHandle2API
         }
 
         if ($message instanceof \Exception) {
-            return with(new \Zank\Common\Message($response, false, $message->getMessage()))
+            return with(new \InYota\Common\Message($response, false, $message->getMessage()))
                 ->withJson();
         }
 

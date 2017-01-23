@@ -1,6 +1,6 @@
 <?php
 
-use Zank\Util\Yaml;
+use InYota\Util\Yaml;
 
 if (!function_exists('cfg')) {
     /**
@@ -16,8 +16,8 @@ if (!function_exists('cfg')) {
      */
     function cfg(string $key, $default = null)
     {
-        $clientKey = '.zank.yaml';
-        $filename = dirname(__DIR__).'/.zank.yaml';
+        $clientKey = '.InYota.yaml';
+        $filename = dirname(__DIR__).'/.yota.yaml';
 
         Yaml::addClient($clientKey, $filename);
 
@@ -36,7 +36,7 @@ if (!function_exists('get_oss_bucket_name')) {
      */
     function get_oss_bucket_name()
     {
-        return \Zank\Application::getContainer()->get('settings')->get('oss')['bucket'];
+        return \InYota\Application::getContainer()->get('settings')->get('oss')['bucket'];
     }
 }
 
@@ -53,10 +53,10 @@ if (!function_exists('attach_url')) {
      */
     function attach_url(string $path)
     {
-        $settings = \Zank\Application::getContainer()->get('settings')->get('oss');
+        $settings = \InYota\Application::getContainer()->get('settings')->get('oss');
 
         if ($settings['sign'] === true) {
-            return \Zank\Application::getContainer()
+            return \InYota\Application::getContainer()
                 ->get('oss')
                 ->signUrl($settings['bucket'], $path, $settings['timeout']);
         }

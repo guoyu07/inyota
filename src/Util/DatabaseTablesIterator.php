@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Util;
+namespace InYota\Util;
 
 use Closure;
 use Symfony\Component\Finder\Finder;

@@ -3,7 +3,7 @@
 use Slim\Container;
 
 // DIC configuration
-$container = \Zank\Application::getContainer();
+$container = \InYota\Application::getContainer();
 
 // monolog
 $container['logger'] = function (Container $c): \Monolog\Logger {

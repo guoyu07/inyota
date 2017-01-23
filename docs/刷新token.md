@@ -1,4 +1,4 @@
-# zank - 刷新token
+# 刷新token
 
 ## 接口
 ```

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Middleware;
+namespace InYota\Middleware;
 
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\RequestInterface as Request;

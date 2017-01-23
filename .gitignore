@@ -1,8 +1,3 @@
 vendor
 composer.lock
-
-.env
-
-.env.yaml
-
-.zank.yaml
+.yota.yaml

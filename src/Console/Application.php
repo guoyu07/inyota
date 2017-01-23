@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Console;
+namespace InYota\Console;
 
 use Composer\Command as ComposerCommand;
 use Composer\Console\Application as BaseApplication;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Application extends BaseApplication
 {
-    public static $name = 'Zank Command Tool';
+    public static $name = 'InYota Command Tool';
     public static $version = '1.0.0';
 
     public function __construct()

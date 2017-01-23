@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Middleware\Sign\Up;
+namespace InYota\Middleware\Sign\Up;
 
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\RequestInterface as Request;
@@ -25,11 +25,11 @@ class ValidateUserInviteCode
         $inviteCode = $request->getParsedBodyParam('invite_code');
 
         if ($inviteCode) {
-            $invite = \Zank\Model\UserInvite::byInviteCode($inviteCode)
+            $invite = \InYota\Model\UserInvite::byInviteCode($inviteCode)
                 ->first();
 
             if (!$invite) {
-                $response = new \Zank\Common\Message($response, false, '该邀请码不存。');
+                $response = new \InYota\Common\Message($response, false, '该邀请码不存。');
 
                 return $response->withJson();
             }

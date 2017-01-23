@@ -1,10 +1,10 @@
 <?php
 
-namespace Zank\Middleware\User\Change;
+namespace InYota\Middleware\User\Change;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Traits\Container;
+use InYota\Traits\Container;
 
 class Age
 {
@@ -17,7 +17,7 @@ class Age
 
         if ($age > 0) {
             if ($age > 120) {
-                return with(new \Zank\Common\Message($response, false, '年龄最大不能大于120岁'))
+                return with(new \InYota\Common\Message($response, false, '年龄最大不能大于120岁'))
                     ->withJson();
             }
 

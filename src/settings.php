@@ -10,7 +10,7 @@ return [
 
         // Monolog settings
         'logger' => [
-            'name'  => cfg('LOGGER_NAME', 'zank'),
+            'name'  => cfg('LOGGER_NAME', 'inyota'),
             'level' => cfg('LOGGER_LEVEL', Monolog\Logger::DEBUG),
             'path'  => dirname(__DIR__).cfg('LOGGER_PATH', '/logs/app.log'),
         ],

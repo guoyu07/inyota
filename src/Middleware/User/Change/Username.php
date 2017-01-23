@@ -1,11 +1,11 @@
 <?php
 
-namespace Zank\Middleware\User\Change;
+namespace InYota\Middleware\User\Change;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Model;
-use Zank\Traits\Container;
+use InYota\Model;
+use InYota\Traits\Container;
 
 class Username
 {
@@ -18,7 +18,7 @@ class Username
 
         if ($username) {
             if ($this->chackUsernameForMe($username) === false) {
-                return with(new \Zank\Common\Message($response, false, '该用户名不可用！'))
+                return with(new \InYota\Common\Message($response, false, '该用户名不可用！'))
                 ->withJson();
             }
 

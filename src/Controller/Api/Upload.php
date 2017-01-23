@@ -1,10 +1,10 @@
 <?php
 
-namespace Zank\Controller\Api;
+namespace InYota\Controller\Api;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Controller;
+use InYota\Controller;
 
 /**
  * 上传控制器.
@@ -15,7 +15,7 @@ class Upload extends Controller
 {
     public function attach(Request $request, Response $response)
     {
-        return with(new \Zank\Common\Message($response, true, '上传成功', $this->ci->get('attach')->attach_id))
+        return with(new \InYota\Common\Message($response, true, '上传成功', $this->ci->get('attach')->attach_id))
             ->withJson();
     }
 
@@ -27,7 +27,7 @@ class Upload extends Controller
 
         $user->save();
 
-        return with(new \Zank\Common\Message($response, true, '更新成功', $user))
+        return with(new \InYota\Common\Message($response, true, '更新成功', $user))
             ->withJson();
     }
 }

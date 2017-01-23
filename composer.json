@@ -1,5 +1,5 @@
 {
-    "name": "medz/zank-web",
+    "name": "medz/inyota",
     "type": "project",
     "homepage": "http://medz.cn",
     "license": "private",
@@ -33,13 +33,12 @@
             "database/"
         ],
         "psr-4": {
-            "Zank\\": "src/",
             "InYota\\": "src/"
         }
     },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"copy('.zank.yaml.example', '.zank.yaml');\""
+            "php -r \"copy('.yota.yaml.example', '.yota.yaml');\""
         ]
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Zank\Middleware\User\Change;
+namespace InYota\Middleware\User\Change;
 
 use Psr\Http\RequestInterface as Request;
 use Psr\Http\RequestInterface as Response;
-use Zank\Model;
-use Zank\Traits\Container;
+use InYota\Model;
+use InYota\Traits\Container;
 
 /**
  * 修改用户信息，地区修改中间件。

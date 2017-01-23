@@ -1,10 +1,10 @@
 <?php
 
-namespace Zank\Middleware\User\Change;
+namespace InYota\Middleware\User\Change;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Traits\Container;
+use InYota\Traits\Container;
 
 class Height
 {
@@ -17,7 +17,7 @@ class Height
 
         if ($height) {
             if ($height < 20 || $height > 320) {
-                return with(new \Zank\Common\Message($response, false, '不合法的身高范围'))
+                return with(new \InYota\Common\Message($response, false, '不合法的身高范围'))
                     ->withJson();
             }
 

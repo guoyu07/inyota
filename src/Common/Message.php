@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Common;
+namespace InYota\Common;
 
 use Psr\Http\Message\ResponseInterface as Response;
 

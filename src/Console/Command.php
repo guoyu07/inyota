@@ -1,11 +1,11 @@
 <?php
 
-namespace Zank\Console;
+namespace InYota\Console;
 
 use Symfony\Component\Console\Command\Command as BaseCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Zank\Interfaces\Console\CommandInterface;
+use InYota\Interfaces\Console\CommandInterface;
 
 abstract class Command extends BaseCommand implements CommandInterface
 {

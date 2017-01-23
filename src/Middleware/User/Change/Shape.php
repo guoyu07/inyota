@@ -1,10 +1,10 @@
 <?php
 
-namespace Zank\Middleware\User\Change;
+namespace InYota\Middleware\User\Change;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Zank\Traits\Container;
+use InYota\Traits\Container;
 
 class Shape
 {
@@ -18,7 +18,7 @@ class Shape
 
         if ($shape) {
             if (!in_array($shape, $this->shapes)) {
-                return with(new \Zank\Common\Message($response, false, '设置的角色非法'))
+                return with(new \InYota\Common\Message($response, false, '设置的角色非法'))
                     ->withJson();
             }
 

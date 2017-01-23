@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Model;
+namespace InYota\Model;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -57,6 +57,6 @@ class SignToken extends Model
 
     public function user()
     {
-        return $this->hasOne(\Zank\Model\User::class, 'user_id', 'user_id');
+        return $this->hasOne(\InYota\Model\User::class, 'user_id', 'user_id');
     }
 } // END class SignToken extends Model

@@ -5,4 +5,4 @@
 //
 
 // Trailing slash
-\Zank\Application::add(Zank\Middleware\TrailingSlash::class);
+\InYota\Application::add(InYota\Middleware\TrailingSlash::class);
