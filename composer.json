@@ -33,7 +33,8 @@
             "database/"
         ],
         "psr-4": {
-            "Zank\\": "src/"
+            "Zank\\": "src/",
+            "InYota\\": "src/"
         }
     },
     "scripts": {
