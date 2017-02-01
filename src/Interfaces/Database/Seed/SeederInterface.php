@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Interfaces\Database\Seed;
+namespace InYota\Interfaces\Database\Seed;
 
 interface SeederInterface
 {

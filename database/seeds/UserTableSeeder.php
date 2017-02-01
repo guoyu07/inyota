@@ -1,6 +1,6 @@
 <?php
 
-use Zank\Database\Seed\Seeder;
+use InYota\Database\Seed\Seeder;
 
 class UserTableSeeder extends Seeder
 {
