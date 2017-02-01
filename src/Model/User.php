@@ -62,6 +62,11 @@ class User extends Model
      */
     public function attachs()
     {
-        return $this->belongsToMany(Attach::class, 'attach_links', 'user_id', 'attach_id');
+        return $this->belongsToMany(Attach::class, 'attach_user_links', 'user_id', 'attach_id');
+    }
+
+    public function feeds()
+    {
+        return $this->hasMany(Feed::class, 'user_id');
     }
 } // END class User extends Eloquent

@@ -132,6 +132,15 @@ Application::group('/api', function () {
     // 地区接口
     $this->any('/areas[/{pid:\d+}]', \InYota\Controller\Api\Area::class.':get')
         ->add(\InYota\Middleware\InitDb::class);
+
+    // 分享接口相关
+    $this->group('/feeds', function () {
+        // 发布分享
+        $this->post('', \InYota\Controller\Api\Feed::class.':send')
+             ->add(\InYota\Middleware\AttachUpload::class);
+    })
+    ->add(\InYota\Middleware\AuthenticationUserToken::class)
+    ->add(\InYota\Middleware\InitDb::class);
 })
 ->add(\InYota\Middleware\ExceptionHandle2API::class);
 

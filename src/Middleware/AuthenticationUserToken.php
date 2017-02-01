@@ -23,7 +23,7 @@ class AuthenticationUserToken
 
     public function __invoke(Request $request, Response $response, callable $next)
     {
-        $token = $request->getHeaderLine('InYota-token');
+        $token = $request->getHeaderLine('access-token');
         $token = \InYota\Model\SignToken::byToken($token)->first();
 
         if (!$token) {

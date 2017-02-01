@@ -1,6 +1,6 @@
 <?php
 
-namespace Zank\Model;
+namespace InYota\Model;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -22,10 +22,5 @@ class Attach extends Model
     public function scopeByMd5(Builder $query, $md5)
     {
         return $query->where('md5', $md5);
-    }
-
-    public function links()
-    {
-        return $this->hasMany(AttachLink::class);
     }
 } // END class Attach extends Eloquent

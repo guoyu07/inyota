@@ -5,9 +5,9 @@ namespace InYota\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class AttachLink extends Model
+class AttachUserLink extends Model
 {
-    protected $table = 'attach_links';
+    protected $table = 'attach_user_links';
 
     protected $primaryKey = 'attach_link_id';
 

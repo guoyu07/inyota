@@ -52,7 +52,7 @@ class AttachUpload
     protected function saveAttachLink(\InYota\Model\Attach $attach)
     {
         $user = $this->ci->get('user');
-        $link = \InYota\Model\AttachLink::byUserId($user->user_id)->byAttachId($attach->attach_id)->first();
+        $link = \InYota\Model\AttachUserLink::byUserId($user->user_id)->byAttachId($attach->attach_id)->first();
 
         if (!$link) {
             $link = $user->attachs()->attach($attach->attach_id);
