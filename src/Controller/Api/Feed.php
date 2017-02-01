@@ -3,20 +3,22 @@
 namespace InYota\Controller\Api;
 
 use Geohash\Geohash;
+use InYota\Common\Message;
 use InYota\Controller;
+use InYota\Model\Feed as FeedModel;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use InYota\Model\Feed as FeedModel;
-use InYota\Common\Message;
 
 class Feed extends Controller
 {
     /**
-     * 发布分享
+     * 发布分享.
      *
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
+     *
      * @return mixed
+     *
      * @author Seven Du <shiweidu@outlook.com>
      * @homepage http://medz.cn
      */
