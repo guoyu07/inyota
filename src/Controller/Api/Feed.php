@@ -48,4 +48,45 @@ class Feed extends Controller
 
         return $response->withJson();
     }
+
+    public function get(Request $request, Response $response)
+    {
+        $type = $request->getAttribute('type');
+
+        switch (strtolower($type)) {
+            case 'new':
+                # code...
+                break;
+        }
+
+        return $this->getHot($request, $response);
+    }
+
+    protected function getHot(Request $request, Response $response)
+    {}
+
+    /**
+     * digg feed.
+     *
+     * @param Request $request
+     * @param Response $response
+     * @param array $args
+     * @return mixed
+     * @author Seven Du <shiweidu@outlook.com>
+     * @homepage http://medz.cn
+     */
+    public function sendDigg(Request $request, Response $response, array $args)
+    {
+        $id = $args['id'];
+        $feed = FeedModel::find($id);
+
+        if (!$feed) {
+            return with(new Message($response, false, '分享不存在'))->withJson();
+        }
+
+        $user = $this->ci->get('user');
+        $demo = $user->diggFeeds()->sync([$feed->id], false);
+
+        return with(new Message($response, true, '操作成功'))->withJson();
+    }
 }

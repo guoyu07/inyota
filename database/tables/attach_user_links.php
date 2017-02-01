@@ -8,4 +8,5 @@ return function (Blueprint $table) {
     $table->integer('attach_id');
     $table->index('user_id');
     $table->index('attach_id');
+    $table->timestamps();
 };

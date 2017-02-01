@@ -138,6 +138,12 @@ Application::group('/api', function () {
         // 发布分享
         $this->post('', \InYota\Controller\Api\Feed::class.':send')
              ->add(\InYota\Middleware\AttachUpload::class);
+
+        // 获取分享
+        $this->get('[/{type}]', \InYota\Controller\Api\Feed::class.':get');
+
+        // 赞分享
+        $this->post('/{id:\d+}/diggs', \InYota\Controller\Api\Feed::class.':sendDigg');
     })
     ->add(\InYota\Middleware\AuthenticationUserToken::class)
     ->add(\InYota\Middleware\InitDb::class);
