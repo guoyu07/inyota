@@ -55,7 +55,7 @@ class Feed extends Controller
 
         switch (strtolower($type)) {
             case 'new':
-                # code...
+                // code...
                 break;
         }
 
@@ -63,15 +63,18 @@ class Feed extends Controller
     }
 
     protected function getHot(Request $request, Response $response)
-    {}
+    {
+    }
 
     /**
      * digg feed.
      *
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
-     * @param array $args
+     * @param array    $args
+     *
      * @return mixed
+     *
      * @author Seven Du <shiweidu@outlook.com>
      * @homepage http://medz.cn
      */
