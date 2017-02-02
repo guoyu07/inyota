@@ -47,7 +47,11 @@ class User extends Controller
                 ->withJson();
         }
 
+        $skip = (int) $request->getParsedBodyParam('skip', 0); // 条约多少条
+        $take = 20; // 获取数量
         $users = Model\User::where('username', 'like', '%'.$key.'%')
+            ->take($take)
+            ->skip($skip)
             ->get();
 
         return with(new \InYota\Common\Message($response, true, '', $users->toArray()))
@@ -133,7 +137,11 @@ class User extends Controller
             });
         }
 
-        $users = $users->get();
+        $skip = (int) $request->getParsedBodyParam('skip', 0); // 条约多少条
+        $take = 20; // 获取数量
+        $users = $users->take($take)
+            ->skip($skip)
+            ->get();
 
         if (!$users->count()) {
             return with(new \InYota\Common\Message($response, false, '没有用户'))->withJson();
