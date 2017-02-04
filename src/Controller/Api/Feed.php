@@ -6,7 +6,6 @@ use Geohash\Geohash;
 use InYota\Common\Message;
 use InYota\Controller;
 use InYota\Model\Feed as FeedModel;
-use InYota\Model\FeedDigg;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -76,8 +75,10 @@ class Feed extends Controller
             })
             ->get();
 
-        var_dump($builder->toArray());exit;
-        var_dump($builder);exit;
+        var_dump($builder->toArray());
+        exit;
+        var_dump($builder);
+        exit;
     }
 
     /**
