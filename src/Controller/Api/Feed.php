@@ -6,6 +6,7 @@ use Geohash\Geohash;
 use InYota\Common\Message;
 use InYota\Controller;
 use InYota\Model\Feed as FeedModel;
+use InYota\Model\FeedDigg;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -64,6 +65,19 @@ class Feed extends Controller
 
     protected function getHot(Request $request, Response $response)
     {
+        $day = 7;
+        $now = $this->ci->carbon->copy();
+        $sub = $now->copy()->subDays($day);
+
+        $builder = FeedModel::distinct()
+            ->whereHas('diggs', function ($query) use ($sub, $now) {
+                $query->whereBetween('created_at', [$sub, $now])
+                    ->groupBy('feed_id');
+            })
+            ->get();
+
+        var_dump($builder->toArray());exit;
+        var_dump($builder);exit;
     }
 
     /**

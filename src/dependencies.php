@@ -39,3 +39,10 @@ $container['oss'] = function (Container $c) {
 
     return $oss;
 };
+
+// Carbon
+$container['carbon'] = function () {
+    // return function () {
+        return new \Carbon\Carbon();
+    // };
+};
