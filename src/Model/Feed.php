@@ -19,4 +19,10 @@ class Feed extends Model
     {
         return $this->hasMany(FeedDigg::class);
     }
+
+    public function diggUsers()
+    {
+        return $this->belongsToMany(User::class, 'feed_diggs', 'feed_id', 'user_id')
+            ->withTimestamps();
+    }
 }

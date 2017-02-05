@@ -56,11 +56,38 @@ class Feed extends Controller
 
         switch (strtolower($type)) {
             case 'new':
-                // code...
-                break;
+                return $this->getNew($request, $response);
         }
 
         return $this->getHot($request, $response);
+    }
+
+    protected function getNew(Request $request, Response $response)
+    {
+        $min = $request->getQueryParam('min');
+        $take = 20;
+        $userNum = 9;
+
+        $feeds = FeedModel::where(function ($query) use ($min) {
+                if ($min) {
+                    $query->where('id', '<', $min);
+                }
+            })
+            ->orderBy('id', 'desc')
+            ->take($take)
+            ->withCount('diggUsers')
+            ->with([
+                'diggUsers' => function ($query) use ($userNum) {
+                    $query->take($userNum);
+                }
+            ])
+            ->get();
+
+        if ($feeds->isEmpty()) {
+            return with(new Message($response, false, '无数据'))->withJson();
+        }
+
+        return with(new Message($response, true, '获取成功', $feeds->toArray()))->withJson();
     }
 
     protected function getHot(Request $request, Response $response)
@@ -68,16 +95,35 @@ class Feed extends Controller
         $day = 7;
         $now = $this->ci->carbon->copy();
         $sub = $now->copy()->subDays($day);
+        $take = 20;
+        $userNum = 9;
+        $min = $request->getQueryParam('min');
 
-        $builder = FeedModel::distinct()
+        $feeds = FeedModel::distinct()
             ->whereHas('diggs', function ($query) use ($sub, $now) {
                 $query->whereBetween('created_at', [$sub, $now])
                     ->groupBy('feed_id');
             })
+            ->where(function ($query) use ($min) {
+                if ($min) {
+                    $query->where('id', '<', $min);
+                }
+            })
+            ->orderBy('id', 'desc')
+            ->take($take)
+            ->with([
+                'diggUsers' => function ($query) use ($userNum) {
+                    $query->take($userNum);
+                }
+            ])
+            ->withCount('diggUsers')
             ->get();
 
-        var_dump($builder->toArray());exit;
-        var_dump($builder);exit;
+        if ($feeds->isEmpty()) {
+            return with(new Message($response, false, '无数据'))->withJson();
+        }
+
+        return with(new Message($response, true, '获取成功', $feeds->toArray()))->withJson();
     }
 
     /**
