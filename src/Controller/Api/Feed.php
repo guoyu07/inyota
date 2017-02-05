@@ -68,17 +68,17 @@ class Feed extends Controller
         $userNum = 9;
 
         $feeds = FeedModel::where(function ($query) use ($min) {
-                if ($min) {
-                    $query->where('id', '<', $min);
-                }
-            })
+            if ($min) {
+                $query->where('id', '<', $min);
+            }
+        })
             ->orderBy('id', 'desc')
             ->take($take)
             ->withCount('diggUsers')
             ->with([
                 'diggUsers' => function ($query) use ($userNum) {
                     $query->take($userNum);
-                }
+                },
             ])
             ->get();
 
@@ -113,7 +113,7 @@ class Feed extends Controller
             ->with([
                 'diggUsers' => function ($query) use ($userNum) {
                     $query->take($userNum);
-                }
+                },
             ])
             ->withCount('diggUsers')
             ->get();
