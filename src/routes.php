@@ -3,6 +3,8 @@
 use InYota\Application;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use InYota\Controller\Api;
+use InYota\Middleware;
 
 Application::any('/test', function (Request $request, Response $response) {
     $response = $response->withJson([1, 2, 3]);
@@ -128,6 +130,11 @@ Application::group('/api', function () {
     $this->post('/users', \InYota\Controller\Api\User::class.':gets')
         ->add(\InYota\Middleware\AuthenticationUserToken::class)
         ->add(\InYota\Middleware\InitDb::class);
+
+    // 更新用户经纬度
+    $this->patch('/users/{user}/geohash', Api\User::class.':updateGeohash')
+        ->add(Middleware\AuthenticationUserToken::class)
+        ->add(Middleware\InitDb::class);
 
     // 地区接口
     $this->any('/areas[/{pid:\d+}]', \InYota\Controller\Api\Area::class.':get')

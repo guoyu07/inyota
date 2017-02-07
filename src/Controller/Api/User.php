@@ -29,6 +29,21 @@ class User extends Controller
         ]);
     }
 
+    public function updateGeohash(Request $request, Response $response)
+    {
+        $user = $this->ci->get('user');
+        $latitude = $request->getParsedBodyParam('latitude');
+        $longitude = $request->getParsedBodyParam('longitude');
+        $geohash = Geohash::encode($latitude, $longitude);
+
+        $user->latitude = $latitude;
+        $user->longitude = $longitude;
+        $user->geohash = $geohash;
+        $user->save();
+
+        return with(new \InYota\Common\Message($response, true, '更新成功'))->withJson();
+    }
+
     public function changeDate(Request $request, Response $response)
     {
         $user = $this->ci->get('user');
