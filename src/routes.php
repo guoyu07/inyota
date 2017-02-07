@@ -1,10 +1,10 @@
 <?php
 
 use InYota\Application;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use InYota\Controller\Api;
 use InYota\Middleware;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 Application::any('/test', function (Request $request, Response $response) {
     $response = $response->withJson([1, 2, 3]);
